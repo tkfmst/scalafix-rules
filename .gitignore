@@ -5,6 +5,7 @@ local.sbt
 
 # metals
 metals.sbt
+.metals
 .bsp
 .bloop
 
