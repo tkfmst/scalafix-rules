@@ -1,0 +1,23 @@
+# sbt
+target/
+.jvmopts
+local.sbt
+
+# metals
+metals.sbt
+.bsp
+.bloop
+
+# intellij idea
+*.log
+*.iml
+*.ipr
+*.iws
+*.sc
+.idea
+
+# mac
+.DS_Store
+
+#general
+*.class
