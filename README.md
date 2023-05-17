@@ -1,2 +1,7 @@
 # scalafix-rules
-独自ルール
+
+To develop rule:
+```
+sbt ~tests/test
+# edit rules/src/main/scala/fix/Scalafixrules.scala
+```
