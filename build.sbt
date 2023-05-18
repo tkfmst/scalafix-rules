@@ -3,6 +3,23 @@ lazy val V = _root_.scalafix.sbt.BuildInfo
 lazy val rulesCrossVersions = Seq(V.scala213, V.scala212)
 lazy val scala3Version = "3.0.1"
 
+val commonSettings = Def.settings(
+  scalacOptions ++= {
+    if (scalaBinaryVersion.value == "3") {
+      Nil
+    } else {
+      Seq(
+        "-Xsource:3",
+      )
+    }
+  },
+  scalacOptions ++= Seq(
+    "-deprecation",
+    "-language:higherKinds",
+    "-feature",
+  )
+)
+
 inThisBuild(
   List(
     organization := "com.example",
@@ -36,6 +53,7 @@ lazy val `scalafix-rules` = (project in file("."))
 
 lazy val rules = projectMatrix
   .settings(
+    commonSettings,
     moduleName := "scalafix-rules",
     libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % V.scalafixVersion
   )
@@ -44,6 +62,7 @@ lazy val rules = projectMatrix
 
 lazy val input = projectMatrix
   .settings(
+    commonSettings,
     publish / skip := true
   )
   .defaultAxes(VirtualAxis.jvm)
@@ -51,6 +70,7 @@ lazy val input = projectMatrix
 
 lazy val output = projectMatrix
   .settings(
+    commonSettings,
     publish / skip := true
   )
   .defaultAxes(VirtualAxis.jvm)
