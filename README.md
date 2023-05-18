@@ -17,3 +17,7 @@ sbt ~tests/test
 - 例
     - `usecase` -> `useCase`
     - `Usecase` -> `UseCase`
+
+### UseAsteriskForWildcardImport
+
+- `import`でワイルドカードを使う時、scala2の`_` ではなく `*` を使う

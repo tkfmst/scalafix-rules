@@ -1,2 +1,3 @@
 fix.Scalafixrules
 fix.UnifyNameOfUseCase
+fix.UseAsteriskForWildcardImport
